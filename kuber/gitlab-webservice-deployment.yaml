@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab-webservice
+  namespace: gitlab
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gitlab-webservice
+  template:
+    metadata:
+      labels:
+        app: gitlab-webservice
+    spec:
+      containers:
+      - name: webservice
+        image: gitlab/gitlab-ce:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: GITLAB_OMNIBUS_CONFIG
+          value: |
+            external_url 'http://gitlab-stand.cyber.pg'
+            gitlab_rails['db_password'] = '!QAZxsw2'

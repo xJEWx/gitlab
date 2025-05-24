@@ -1,0 +1,35 @@
+global:
+  edition: ce                 # или 'ee' — Community или Enterprise Edition
+  hosts:
+    domain: stand.cyber.pg       # домен для GitLab
+    externalIP: 192.168.0.197      # если нужен внешний IP
+    https: false              # если хочешь использовать TLS, ставь true и настрой сертификаты
+  ingress:
+    configureCertmanager: false
+    tls:
+      enabled: false
+
+certmanager-issuer:
+  email: your-email@example.com
+
+gitlab:
+  webservice:
+    replicas: 2               # количество подов для web-сервиса
+  task-runner:
+    replicas: 1
+  sidekiq:
+    replicas: 1
+
+postgresql:
+  install: true               # ставить встроенный PostgreSQL или использовать внешний
+  postgresqlPassword: !QAZxsw2
+
+redis:
+  install: true               # ставить Redis или внешний
+  password: !QAZxsw2
+
+persistence:
+  enabled: true
+  storageClass: "standard"   # имя StorageClass в кластере
+  size: 50Gi                 # размер диска
+

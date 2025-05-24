@@ -14,20 +14,26 @@ spec:
         control-plane: controller-manager
     spec:
       containers:
-      - args:
-        - --enable-leader-election
-        - --metrics-addr=:8080
-        - --zap-log-level=info
-        - --disable-webhooks
-        command:
-        - /manager
-        image: registry.gitlab.com/gitlab-org/cloud-native/gitlab-operator:0.1.0
-        name: manager
+      - name: manager
+        image: registry.gitlab.com/gitlab-org/cloud-native/gitlab-operator:v0.8.0
+        args:
+        - "--enable-leader-election"
+        - "--metrics-addr=:8080"
+        - "--zap-log-level=info"
+        volumeMounts:
+        - name: webhook-certs
+          mountPath: /tmp/k8s-webhook-server/serving-certs
+          readOnly: true
         resources:
           limits:
             cpu: 100m
-            memory: 30Mi
+            memory: 300Mi
           requests:
             cpu: 100m
-            memory: 20Mi
+            memory: 200Mi
+      volumes:
+      - name: webhook-certs
+        hostPath:
+          path: /tmp/k8s-webhook-server/serving-certs
+          type: Directory
       terminationGracePeriodSeconds: 10

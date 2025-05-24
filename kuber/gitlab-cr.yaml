@@ -1,0 +1,18 @@
+apiVersion: apps.gitlab.com/v1beta1
+kind: GitLab
+metadata:
+  name: gitlab
+  namespace: gitlab-system
+spec:
+  chart:
+    version: "7.0.0"
+    values:
+      global:
+        hosts:
+          domain: gitlab-stand.cyber.pg
+          https: false
+        ingress:
+          enabled: true
+          configureCertmanager: false
+      certmanager:
+        install: false

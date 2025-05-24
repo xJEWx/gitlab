@@ -26,9 +26,10 @@ metadata:
   name: gitlab-webservice
   namespace: gitlab
 spec:
-  type: ClusterIP
+  type: NodePort  # Изменено с ClusterIP
   ports:
   - port: 80
     targetPort: 80
+    nodePort: 30080  # Опционально: фиксированный порт (диапазон 30000-32768)
   selector:
     app: gitlab-webservice

@@ -15,7 +15,9 @@ spec:
     spec:
       containers:
       - args:
-        - --leader-elect
+        - --enable-leader-election
+        - --metrics-addr=:8080
+        - --zap-log-level=info
         command:
         - /manager
         image: registry.gitlab.com/gitlab-org/cloud-native/gitlab-operator:0.1.0

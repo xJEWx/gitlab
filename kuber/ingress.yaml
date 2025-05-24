@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gitlab-ingress
+  namespace: gitlab
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: gitlab-stand.cyber.pg  # Замените на ваш IP, если нет DNS
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gitlab-webservice
+            port:
+              number: 80

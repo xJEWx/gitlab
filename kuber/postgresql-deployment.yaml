@@ -18,7 +18,10 @@ spec:
         image: postgres:13
         env:
         - name: POSTGRES_PASSWORD
-          value: "!QAZxsw2"
+          valueFrom:
+            secretKeyRef:
+              name: gitlab-secrets
+              key: postgres-password
         ports:
         - containerPort: 5432
         volumeMounts:
@@ -27,4 +30,4 @@ spec:
       volumes:
       - name: pgdata
         persistentVolumeClaim:
-          claimName: gitlab-pvc
+          claimName: gitlab-postgresql-pvc  # Используем новый PVC

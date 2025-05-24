@@ -21,4 +21,10 @@ spec:
         command:
           - redis-server
           - "--requirepass"
-          - "!QAZxsw2"
+          - "$(REDIS_PASSWORD)"
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: gitlab-secrets
+              key: redis-password

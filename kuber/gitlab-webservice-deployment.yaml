@@ -22,4 +22,11 @@ spec:
         - name: GITLAB_OMNIBUS_CONFIG
           value: |
             external_url 'http://gitlab-stand.cyber.pg'
-            gitlab_rails['db_password'] = '!QAZxsw2'
+            gitlab_rails['db_adapter'] = 'postgresql'
+            gitlab_rails['db_host'] = 'gitlab-postgresql'
+            gitlab_rails['db_password'] = "$(POSTGRES_PASSWORD)"
+            gitlab_rails['redis_host'] = 'gitlab-redis'
+            gitlab_rails['redis_password'] = "$(REDIS_PASSWORD)"
+        envFrom:
+        - secretRef:
+            name: gitlab-secrets

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitlab-controller-manager
-  namespace: gitlab-system
+  namespace: gitlab
 spec:
   replicas: 1
   selector:

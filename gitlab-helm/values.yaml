@@ -37,3 +37,6 @@ gitlab-runner:
   install: true
   runners:
     privileged: true
+
+rbac:
+  create: false

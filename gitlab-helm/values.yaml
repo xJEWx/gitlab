@@ -13,19 +13,19 @@ global:
 
 # Полное отключение всех компонентов cert-manager
 certmanager:
-  enabled: false
-  installCRDs: false
+  enabled: true
+  installCRDs: true
   rbac:
-    create: false
+    create: true
   webhook:
-    enabled: false  # Явное отключение webhook
+    enabled: true  # Явное отключение webhook
 
 certmanager-issuer:
-  enabled: false
+  enabled: true
 
 # Отключение всех RBAC-ресурсов
 rbac:
-  create: false
+  create: true
 
 # Остальные настройки
 postgresql:

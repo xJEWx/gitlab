@@ -13,15 +13,15 @@ global:
 
 # Полное отключение всех компонентов cert-manager
 certmanager:
-  enabled: true
-  installCRDs: true
+  enabled: false
+  installCRDs: false
   rbac:
-    create: true
+    create: false
   webhook:
     enabled: true  # Явное отключение webhook
 
 certmanager-issuer:
-  enabled: true
+  enabled: false
 
 # Отключение всех RBAC-ресурсов
 rbac:

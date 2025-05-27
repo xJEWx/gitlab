@@ -1,6 +1,6 @@
 apiVersion: v2
 name: gitlab
-description: A custom Helm chart for GitLab on Kubernetes
+description: GitLab Helm chart without cert-manager
 type: application
 version: 0.1.0
 appVersion: 16.0.0
@@ -9,5 +9,6 @@ dependencies:
     version: "7.0.0"
     repository: "https://charts.gitlab.io"
     exclude:
-    - "certmanager*"  # Явно исключаем все компоненты cert-manager
-    - "webhook*"      # Исключаем webhook-ресурсы
+    - "certmanager*"
+    - "webhook*"
+    - "crds/*certmanager*"  # Явно исключаем CRD cert-manager

@@ -9,7 +9,7 @@ global:
       enabled: false
     configureCertmanager: false
 
-# Полное отключение всех компонентов
+# Полное отключение cert-manager
 certmanager:
   enabled: false
   installCRDs: false
@@ -18,25 +18,16 @@ certmanager:
   webhook:
     enabled: false
 
-certmanager-issuer:
-  enabled: false
-  rbac:
-    create: false
-
-prometheus:
-  install: false
-  rbac:
-    create: false
-
+# Отключение всех RBAC
 rbac:
   create: false
 
-# Дополнительные отключения
-gitlab:
-  monitoring:
-    enabled: false
-  certmanager:
-    enabled: false
+# Отключение мониторинга
+monitoring:
+  enabled: false
+prometheus:
+  enabled: false
+  install: false
 
 # Остальные настройки
 postgresql:

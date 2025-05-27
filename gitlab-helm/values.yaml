@@ -6,17 +6,20 @@ global:
   ingress:
     enabled: true
     tls:
-      enabled: false  # Отключаем TLS
+      enabled: false  # Полностью отключаем TLS
     annotations:
       kubernetes.io/ingress.class: nginx
 
-# Полное отключение cert-manager
+# Полное отключение всех компонентов cert-manager
+global:
+  ingress:
+    configureCertmanager: false
 certmanager:
   install: false
 certmanager-issuer:
   install: false
 
-# Остальные настройки остаются без изменений
+# Остальные настройки
 postgresql:
   install: true
   persistence:

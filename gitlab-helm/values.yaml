@@ -1,9 +1,9 @@
 # Основные настройки
 global:
   hosts:
-    domain: your-domain.com       # Ваш домен (например, gitlab.your-company.com)
+    domain: gitlab-stand.pg       # Ваш домен (например, gitlab.your-company.com)
     gitlab:
-      name: gitlab.your-domain.com # Полный адрес GitLab
+      name: gitlab-stand.pg # Полный адрес GitLab
   ingress:
     enabled: true
     tls:

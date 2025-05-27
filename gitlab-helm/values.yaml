@@ -8,17 +8,15 @@ global:
     tls:
       enabled: false
     configureCertmanager: false
-    annotations:
-      kubernetes.io/ingress.class: nginx
 
-# Полное отключение всех компонентов cert-manager
+# Полное отключение всех компонентов
 certmanager:
   enabled: false
   installCRDs: false
   rbac:
     create: false
   webhook:
-    enabled: false  # Исправлено на false
+    enabled: false
 
 certmanager-issuer:
   enabled: false
@@ -29,9 +27,16 @@ prometheus:
   install: false
   rbac:
     create: false
-# Отключение всех RBAC-ресурсов
+
 rbac:
-  create: false  # Исправлено на false
+  create: false
+
+# Дополнительные отключения
+gitlab:
+  monitoring:
+    enabled: false
+  certmanager:
+    enabled: false
 
 # Остальные настройки
 postgresql:

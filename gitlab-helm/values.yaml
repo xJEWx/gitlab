@@ -1,4 +1,3 @@
-# Основные настройки
 global:
   hosts:
     domain: gitlab-stand.pg
@@ -7,17 +6,17 @@ global:
   ingress:
     enabled: true
     tls:
-      enabled: true
-      secretName: gitlab-tls
+      enabled: false  # Отключаем TLS
     annotations:
       kubernetes.io/ingress.class: nginx
 
-# Настройки cert-manager (обязательно!)
+# Полное отключение cert-manager
+certmanager:
+  install: false
 certmanager-issuer:
-  email: gitlab@cyber.pg  # Замените на реальный email
   install: false
 
-# БД и Redis
+# Остальные настройки остаются без изменений
 postgresql:
   install: true
   persistence:
@@ -28,13 +27,11 @@ redis:
   persistence:
     size: 10Gi
 
-# GitLab Runner
 gitlab-runner:
   install: true
   runners:
     privileged: true
 
-# Доп. настройки
 gitlab:
   webservice:
     replicas: 2

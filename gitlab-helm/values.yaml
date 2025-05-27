@@ -15,7 +15,7 @@ global:
 # Настройки cert-manager (обязательно!)
 certmanager-issuer:
   email: gitlab@cyber.pg  # Замените на реальный email
-  install: true
+  install: false
 
 # БД и Redis
 postgresql:

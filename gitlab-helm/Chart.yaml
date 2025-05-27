@@ -13,3 +13,4 @@ dependencies:
     - "webhook*"
     - "crds/*certmanager*"
     - "*/rbac*"  # Добавлено исключение RBAC-ресурсов
+    - "prometheus*"

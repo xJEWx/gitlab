@@ -6,19 +6,24 @@ global:
   ingress:
     enabled: true
     tls:
-      enabled: false  # Полностью отключаем TLS
-    configureCertmanager: false  # Критически важная настройка
+      enabled: false
+    configureCertmanager: false
     annotations:
       kubernetes.io/ingress.class: nginx
 
 # Полное отключение всех компонентов cert-manager
 certmanager:
-  enabled: false  # Вместо install: false
+  enabled: false
   installCRDs: false
+  rbac:
+    create: false
+  webhook:
+    enabled: false  # Явное отключение webhook
+
 certmanager-issuer:
   enabled: false
 
-# Отключение RBAC-ресурсов
+# Отключение всех RBAC-ресурсов
 rbac:
   create: false
 
@@ -37,6 +42,3 @@ gitlab-runner:
   install: true
   runners:
     privileged: true
-
-rbac:
-  create: false

@@ -2,7 +2,7 @@ apiVersion: v2
 name: gitlab
 description: GitLab without cluster resources
 type: application
-version: 0.1.0
+version: 0.2.0  # Увеличьте версию
 appVersion: 16.0.0
 dependencies:
   - name: gitlab
@@ -14,3 +14,4 @@ dependencies:
     - "**/rbac*"
     - "**/monitoring*"
     - "**/leader*"
+    - "**/subjectaccessreviews*"

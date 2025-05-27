@@ -18,14 +18,16 @@ certmanager:
   rbac:
     create: false
   webhook:
-    enabled: true  # Явное отключение webhook
+    enabled: false  # Исправлено на false
 
 certmanager-issuer:
   enabled: false
+  rbac:
+    create: false
 
 # Отключение всех RBAC-ресурсов
 rbac:
-  create: true
+  create: false  # Исправлено на false
 
 # Остальные настройки
 postgresql:

@@ -25,6 +25,10 @@ certmanager-issuer:
   rbac:
     create: false
 
+prometheus:
+  install: false
+  rbac:
+    create: false
 # Отключение всех RBAC-ресурсов
 rbac:
   create: false  # Исправлено на false

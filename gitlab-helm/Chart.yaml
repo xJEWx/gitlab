@@ -1,0 +1,10 @@
+apiVersion: v2
+name: gitlab-custom                  # Имя вашего чарта
+description: A custom Helm chart for GitLab on Kubernetes
+type: application                   # Тип (application или library)
+version: 0.1.0                      # Версия чарта (SemVer)
+appVersion: 16.0.0                  # Версия GitLab (актуальная)
+dependencies:
+  - name: gitlab
+    version: "7.0.0"                # Версия официального чарта GitLab
+    repository: "https://charts.gitlab.io"

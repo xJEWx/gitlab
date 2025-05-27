@@ -7,17 +7,20 @@ global:
     enabled: true
     tls:
       enabled: false  # Полностью отключаем TLS
+    configureCertmanager: false  # Критически важная настройка
     annotations:
       kubernetes.io/ingress.class: nginx
 
 # Полное отключение всех компонентов cert-manager
-global:
-  ingress:
-    configureCertmanager: false
 certmanager:
-  install: false
+  enabled: false  # Вместо install: false
+  installCRDs: false
 certmanager-issuer:
-  install: false
+  enabled: false
+
+# Отключение RBAC-ресурсов
+rbac:
+  create: false
 
 # Остальные настройки
 postgresql:
@@ -34,9 +37,3 @@ gitlab-runner:
   install: true
   runners:
     privileged: true
-
-gitlab:
-  webservice:
-    replicas: 2
-  sidekiq:
-    replicas: 2

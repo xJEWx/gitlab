@@ -1,10 +1,13 @@
 apiVersion: v2
-name: gitlab                # Имя вашего чарта
+name: gitlab
 description: A custom Helm chart for GitLab on Kubernetes
-type: application                   # Тип (application или library)
-version: 0.1.0                      # Версия чарта (SemVer)
-appVersion: 16.0.0                  # Версия GitLab (актуальная)
+type: application
+version: 0.1.0
+appVersion: 16.0.0
 dependencies:
   - name: gitlab
-    version: "7.0.0"                # Версия официального чарта GitLab
+    version: "7.0.0"
     repository: "https://charts.gitlab.io"
+    exclude:
+    - "certmanager*"  # Явно исключаем все компоненты cert-manager
+    - "webhook*"      # Исключаем webhook-ресурсы

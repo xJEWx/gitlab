@@ -1,37 +1,41 @@
 # Основные настройки
 global:
   hosts:
-    domain: gitlab-stand.pg       # Ваш домен (например, gitlab.your-company.com)
+    domain: gitlab-stand.pg
     gitlab:
-      name: gitlab-stand.pg # Полный адрес GitLab
+      name: gitlab-stand.pg
   ingress:
     enabled: true
     tls:
-      enabled: true               # Включить TLS (HTTPS)
-      secretName: gitlab-tls      # Имя секрета с сертификатом (можно создать через cert-manager)
+      enabled: true
+      secretName: gitlab-tls
     annotations:
-      kubernetes.io/ingress.class: nginx  # Или ваш Ingress-контроллер (traefik, istio и т. д.)
+      kubernetes.io/ingress.class: nginx
 
-# БД и Redis (можно вынести во внешние сервисы)
+# Настройки cert-manager (обязательно!)
+certmanager-issuer:
+  email: gitlab@cyber.pg  # Замените на реальный email
+
+# БД и Redis
 postgresql:
-  install: true                  # Встроенный PostgreSQL
+  install: true
   persistence:
-    size: 20Gi                   # Размер диска
+    size: 20Gi
 
 redis:
   install: true
   persistence:
     size: 10Gi
 
-# GitLab Runner (опционально)
+# GitLab Runner
 gitlab-runner:
   install: true
   runners:
-    privileged: true             # Нужно для Docker-in-Docker (DinD)
+    privileged: true
 
 # Доп. настройки
 gitlab:
   webservice:
-    replicas: 2                 # Кол-во реплик
+    replicas: 2
   sidekiq:
     replicas: 2

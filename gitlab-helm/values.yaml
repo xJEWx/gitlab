@@ -17,6 +17,14 @@ monitoring:
 prometheus:
   enabled: false
   install: false
+  kubeStateMetrics:
+    enabled: false
+  nodeExporter:
+    enabled: false
+  pushgateway:
+    enabled: false
+  server:
+    enabled: false
 
 # Остальные настройки
 postgresql:

@@ -6,27 +6,13 @@ global:
   ingress:
     enabled: true
     tls:
-      enabled: false
-    configureCertmanager: false
+      enabled: true
+    configureCertmanager: true
 
-# Полное отключение cert-manager
-certmanager:
-  enabled: false
-  installCRDs: false
-  rbac:
-    create: false
-    clusterRoleBindings:
-      create: false  # Явное отключение ClusterRoleBinding
-  webhook:
-    enabled: false
-
-# Отключение всех RBAC
-rbac:
-  create: false
 
 # Отключение мониторинга
 monitoring:
-  enabled: false
+  enabled: true
 prometheus:
   enabled: false
   install: false

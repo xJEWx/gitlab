@@ -6,8 +6,8 @@ global:
   ingress:
     enabled: true
     tls:
-      enabled: true
-    configureCertmanager: true
+      enabled: false
+    configureCertmanager: false
 
 certmanager-issuer:
   email: gitlab@cyber.pg

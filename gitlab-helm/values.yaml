@@ -9,7 +9,8 @@ global:
       enabled: true
     configureCertmanager: true
 
-
+certmanager-issuer:
+  email: gitlab@cyber.pg
 # Отключение мониторинга
 monitoring:
   enabled: true

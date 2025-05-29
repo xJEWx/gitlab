@@ -26,6 +26,9 @@ prometheus:
   server:
     enabled: false
 
+upgradeCheck:
+  enabled: false
+
 # Остальные настройки
 postgresql:
   install: true

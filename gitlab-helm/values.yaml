@@ -26,8 +26,9 @@ prometheus:
   server:
     enabled: false
 
-upgradeCheck:
-  enabled: false
+gitlab:
+  upgradeCheck:
+    enabled: false
 
 # Остальные настройки
 postgresql:

@@ -1,8 +1,8 @@
 global:
   hosts:
-    domain: gitlab-stand.pg
+    domain: gitlab-stand.cyber.pg
     gitlab:
-      name: gitlab-stand.pg
+      name: gitlab-stand.cyber.pg
   ingress:
     enabled: true
     tls:

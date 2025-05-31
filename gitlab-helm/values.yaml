@@ -30,6 +30,28 @@ gitlab:
   upgradeCheck:
     enabled: false
 
+  webservice:
+    replicaCount: 2
+    resources:
+      limits:
+        cpu: "2"
+        memory: "4Gi"
+      requests:
+        cpu: "1"
+        memory: "3Gi"
+    livenessProbe:
+      initialDelaySeconds: 300
+      periodSeconds: 10
+    readinessProbe:
+      initialDelaySeconds: 120
+      periodSeconds: 5
+      failureThreshold: 5
+    extraEnv:
+      SKIP_DOUBLE_INIT: "true"
+      PUMA_WORKERS: "2"
+      PUMA_THREADS: "4"
+      DISABLE_PUMA_WORKER_KILLER: "false"
+
 # Остальные настройки
 postgresql:
   install: true

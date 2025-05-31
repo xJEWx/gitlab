@@ -8,6 +8,10 @@ global:
     tls:
       enabled: false
     configureCertmanager: false
+    provider: nginx
+    class: nginx
+    service:
+      type: NodePort
 
 certmanager-issuer:
   email: gitlab@cyber.pg
@@ -43,12 +47,3 @@ redis:
 
 gitlab-runner:
   install: true
-  runners:
-    privileged: true
-
-nginx-ingress:
-  enabled: true
-  controller:
-    service:
-      type: NodePort
-

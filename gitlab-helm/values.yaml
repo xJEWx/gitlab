@@ -45,3 +45,10 @@ gitlab-runner:
   install: true
   runners:
     privileged: true
+
+nginx-ingress:
+  enabled: true
+  controller:
+    service:
+      type: NodePort
+
